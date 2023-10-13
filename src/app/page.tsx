@@ -1,5 +1,5 @@
 import CategoryList from './components/CategoryList';
-import Newsletter from './components/newsletter';
+import Newsletter from './components/Newsletter';
 
 export interface CategoryMockdataProps {
   id: number;
@@ -27,7 +27,7 @@ const CategoryMockdata: CategoryMockdataProps[] = [
 
 const Home = () => {
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
+    <main className='flex min-h-screen flex-col items-center justify-between p-4 lg:p-12'>
       {!!CategoryMockdata.length && (
         <CategoryList categoryData={CategoryMockdata} />
       )}

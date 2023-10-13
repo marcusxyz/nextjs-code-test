@@ -7,6 +7,17 @@
   --text-color: #000;
 }
 
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 body {
   color: var(--text-color);
   background: var(--background);
