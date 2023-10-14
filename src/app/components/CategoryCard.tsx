@@ -1,11 +1,7 @@
 import Link from 'next/link';
 import BackgroundImageLoader from './BackgroundImageLoader';
 import CardButton from './CardButton';
-
-interface CategoryCardProps {
-  categoryTitle: string;
-  categoryImageUrl: string;
-}
+import { CategoryCardProps } from '../types/category';
 
 const CategoryCard = ({
   categoryTitle = '',

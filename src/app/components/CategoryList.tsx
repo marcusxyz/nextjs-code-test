@@ -1,9 +1,5 @@
+import { CategoryListProps } from '../types/category';
 import CategoryCard from './CategoryCard';
-import { CategoryMockdataProps } from '../page';
-
-interface CategoryListProps {
-  categoryData: CategoryMockdataProps[];
-}
 
 const CategoryList = ({ categoryData = [] }: CategoryListProps) => {
   return (
