@@ -1,7 +1,79 @@
-import React from 'react';
+'use client';
+import { NewsletterMockdataProps } from '../page';
+import ImageLoader from './BackgroundImageLoader';
 
-const Newsletter = () => {
-  return <div>Newsletter</div>;
+interface NewsletterProps {
+  content: NewsletterMockdataProps;
+}
+
+const subscribe = async (e: any) => {};
+
+const Newsletter = ({ content }: NewsletterProps) => {
+  const { title = '', description = '', imageUrl = '' } = content;
+
+  return (
+    <section className='w-full my-32 border border-red-600 md:px-12 xl:px-20 2xl:px-80'>
+      <div className='mb-8 text-center'>
+        <h2 className='text-4xl uppercase lg:capitalize'>{title}</h2>
+        <p className='text-2xl'>{description}</p>
+      </div>
+      <div className='flex flex-col gap-12 lg:gap-0 lg:flex-row'>
+        <div className='relative aspect-[5/4] min-w-[50%] flex justify-center items-center p-12 lg:p-30 lg:group-hover:-translate-y-4 lg:group-hover:shadow-2xl transition-all duration-300 ease-in-out'>
+          <div className='absolute inset-0 overflow-hidden'>
+            <ImageLoader alt={title} src={imageUrl} />
+          </div>
+        </div>
+        <div className='min-w-[50%] lg:bg-white flex flex-col justify-center lg:p-16'>
+          <form onSubmit={subscribe}>
+            {/* // TODO: add input for first and last name */}
+            <input
+              className='border bg-stone-100 p-4 w-full mb-4 uppercase'
+              id='name-input'
+              name='name'
+              placeholder='Förnamn'
+              // ref={inputEl}
+              required
+              type='text'
+            />
+            <input
+              className='border bg-stone-100 p-4 w-full mb-4 uppercase'
+              id='name-input'
+              name='name'
+              placeholder='Efternamn'
+              // ref={inputEl}
+              required
+              type='text'
+            />
+            <input
+              className='border bg-stone-100 p-4 w-full mb-4 uppercase'
+              id='email-input'
+              name='email'
+              placeholder='E-postadress'
+              // ref={inputEl}
+              required
+              type='email'
+            />
+          </form>
+        </div>
+      </div>
+      <div className='py-8 flex flex-col-reverse gap-8 lg:flex-row justify-between'>
+        <div className='flex items-center gap-4'>
+          <input
+            type='checkbox'
+            name='acceptTerms'
+            id='accept-terms'
+            className='form-checkbox p-3 checked:bg-orange-600'
+          />
+          <label htmlFor='acceptTerms' className='text-md form-check-label'>
+            Jag accepterar hantering av personuppgifter
+          </label>
+        </div>
+        <button className='w-auto text-white bg-orange-600 px-20 py-4 border-2 border-transparent hover:bg-white hover:text-black hover:border-black'>
+          Sign up
+        </button>
+      </div>
+    </section>
+  );
 };
 
 export default Newsletter;
