@@ -81,8 +81,6 @@ const NewsletterForm = () => {
         }),
       });
 
-      console.log('response', response);
-
       if (response.ok) {
         // Reset form fields
         setFormData(initialFormData);

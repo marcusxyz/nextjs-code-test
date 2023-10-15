@@ -23,7 +23,6 @@ export const validateCheckbox = (): boolean => {
   // If the checkbox is not checked, set an error message
   if (!checkbox?.checked && checkboxError) {
     checkboxError.innerHTML = 'Please check the box to accept the terms.';
-    console.log('is not checked');
 
     return false;
   }

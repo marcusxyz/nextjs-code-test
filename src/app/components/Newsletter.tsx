@@ -8,7 +8,7 @@ const Newsletter = ({ content }: NewsletterProps) => {
   const { title = '', description = '', imageUrl = '' } = content;
 
   return (
-    <section className="my-32 w-full border border-red-600 md:px-12 xl:px-20 2xl:px-80">
+    <section className="my-32 w-full md:px-12 xl:px-20 2xl:px-80">
       <div className="mb-8 text-center">
         <h2 className="text-4xl uppercase lg:capitalize">{title}</h2>
         <p className="text-2xl">{description}</p>
