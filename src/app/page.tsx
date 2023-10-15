@@ -5,7 +5,7 @@ import { newsletterMockdata } from './mockData/newsletterMockData';
 
 const Home = () => {
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-4 lg:p-12 lg:bg-[#f5f5f5]'>
+    <main className="flex min-h-screen flex-col items-center justify-between p-4 lg:bg-[#f5f5f5] lg:p-12">
       {!!categoryMockdata.length && (
         <CategoryList categoryData={categoryMockdata} />
       )}

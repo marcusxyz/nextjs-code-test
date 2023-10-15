@@ -8,7 +8,6 @@ interface InputFieldProps {
   defaultValue?: string;
   errorMessage: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  // onBlur?: () => void;
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -19,8 +18,6 @@ const InputField: React.FC<InputFieldProps> = ({
   defaultValue = '',
   errorMessage,
   handleChange = () => null,
-  // onChange,
-  // onBlur,
 }) => {
   const [inputValue, setInputValue] = useState<string>(defaultValue);
 
@@ -30,18 +27,17 @@ const InputField: React.FC<InputFieldProps> = ({
   };
 
   return (
-    <div className='mb-4'>
+    <div className="mb-4">
       <input
-        className='border bg-stone-100 p-4 w-full uppercase'
+        className="w-full border bg-stone-100 p-4 uppercase"
         key={key}
         name={name}
         placeholder={placeholder}
         type={type}
         onChange={handleKeyDown}
-        // onBlur={onBlur}
         value={inputValue}
       />
-      <span className='text-red-600'>{errorMessage}</span>
+      <span className="text-red-600">{errorMessage}</span>
     </div>
   );
 };

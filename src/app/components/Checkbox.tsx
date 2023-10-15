@@ -14,21 +14,21 @@ const Checkbox = ({
   label = '',
 }: CheckboxProps) => {
   return (
-    <div className='flex items-center gap-4'>
+    <div className="flex items-center gap-4">
       <input
-        className='form-checkbox p-3 checked:bg-orange-600'
-        type='checkbox'
+        className="form-checkbox p-3 checked:bg-orange-600"
+        type="checkbox"
         form={form}
         name={name}
         id={id}
       />
-      <div className='flex flex-col'>
-        <label htmlFor={id} className='text-md form-check-label'>
+      <div className="flex flex-col">
+        <label htmlFor={id} className="text-md form-check-label">
           {label}
         </label>
         {/* Error message is inserted from validateCheckbox() function */}
         {errorMessageId && (
-          <span id={errorMessageId} className='text-red-600'></span>
+          <span id={errorMessageId} className="text-red-600"></span>
         )}
       </div>
     </div>

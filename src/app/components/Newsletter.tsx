@@ -8,31 +8,31 @@ const Newsletter = ({ content }: NewsletterProps) => {
   const { title = '', description = '', imageUrl = '' } = content;
 
   return (
-    <section className='w-full my-32 border border-red-600 md:px-12 xl:px-20 2xl:px-80'>
-      <div className='mb-8 text-center'>
-        <h2 className='text-4xl uppercase lg:capitalize'>{title}</h2>
-        <p className='text-2xl'>{description}</p>
+    <section className="my-32 w-full border border-red-600 md:px-12 xl:px-20 2xl:px-80">
+      <div className="mb-8 text-center">
+        <h2 className="text-4xl uppercase lg:capitalize">{title}</h2>
+        <p className="text-2xl">{description}</p>
       </div>
-      <div className='flex flex-col gap-12 lg:gap-0 lg:flex-row'>
+      <div className="flex flex-col gap-12 lg:flex-row lg:gap-0">
         <LandscapeImage alt={title} src={imageUrl} />
-        <div className='min-w-[50%] lg:bg-white flex flex-col justify-center lg:p-16'>
+        <div className="flex min-w-[50%] flex-col justify-center lg:bg-white lg:p-16">
           <NewsletterForm />
         </div>
       </div>
-      <div className='py-8 flex flex-col-reverse gap-8 lg:flex-row justify-between'>
-        <div className='flex items-center gap-4'>
+      <div className="flex flex-col-reverse justify-between gap-8 py-8 lg:flex-row">
+        <div className="flex items-center gap-4">
           <Checkbox
-            id='acceptTerms'
-            name='isTermsChecked'
-            errorMessageId='newsletterCheckboxError'
-            form='newsletter'
-            label='Jag accepterar hantering av personuppgifter'
+            id="acceptTerms"
+            name="isTermsChecked"
+            errorMessageId="newsletterCheckboxError"
+            form="newsletter"
+            label="Jag accepterar hantering av personuppgifter"
           />
         </div>
         <button
-          type='submit'
-          form='newsletter'
-          className='w-auto text-white bg-orange-600 px-20 py-4 border-2 border-transparent hover:bg-white hover:text-black hover:border-black'
+          type="submit"
+          form="newsletter"
+          className="w-auto border-2 border-transparent bg-orange-600 px-20 py-4 text-white hover:border-black hover:bg-white hover:text-black"
         >
           Sign up
         </button>

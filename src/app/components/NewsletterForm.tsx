@@ -22,7 +22,7 @@ const errorMessage: ErrorMessageProps = {
 const NewsletterForm = () => {
   const [formData, setFormData] = useState(initialFormData);
   const [errorMessages, setErrorMessages] = useState(errorMessage);
-  const [message, setMessage] = useState('');
+  const [apiResponseMessage, setApiResponseMessage] = useState('');
 
   const validate = (formValues: Record<string, any>) => {
     let error: ErrorMessageProps = {
@@ -81,38 +81,43 @@ const NewsletterForm = () => {
         }),
       });
 
+      console.log('response', response);
+
       if (response.ok) {
+        // Reset form fields
+        setFormData(initialFormData);
+
         const data = await response.json();
-        console.log('response', response);
         const { message } = data;
-        setMessage(message); // Display success message to user
-        setFormData(initialFormData); // Reset form
+
+        // Display success message to user
+        setApiResponseMessage(message);
       }
     } catch (error) {
-      setMessage('Something went wrong. Please try again later.');
+      setApiResponseMessage('Something went wrong. Please try again later.');
       return error;
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} id='newsletter'>
-      <div className='mb-4'>
+    <form onSubmit={handleSubmit} id="newsletter">
+      <div className="mb-4">
         {inputFieldsMockData.map(({ id, name, placeholder, type }) => (
-          <div className='mb-4' key={id}>
+          <div className="mb-4" key={id}>
             <input
-              className='border bg-stone-100 p-4 w-full uppercase'
+              className="w-full border bg-stone-100 p-4 uppercase"
               id={id}
               name={name}
               placeholder={placeholder}
               type={type}
               onChange={handleChange}
             />
-            <span className='block mt-2 text-red-600'>
+            <span className="mt-2 block text-red-600">
               {errorMessages[name as keyof ErrorMessageProps]}
             </span>
           </div>
         ))}
-        <span className='block mt-12 text-lg'>{message}</span>
+        <span className="mt-12 block text-lg">{apiResponseMessage}</span>
       </div>
     </form>
   );

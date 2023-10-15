@@ -11,9 +11,9 @@ const BackgroundImageLoader = ({ alt = '', src = '' }) => {
       alt={alt}
       src={src}
       fill
-      loading='lazy'
-      objectFit='cover'
-      objectPosition='center'
+      loading="lazy"
+      objectFit="cover"
+      objectPosition="center"
       className={`duration-400 ease-in-out
           ${
             isLoading
