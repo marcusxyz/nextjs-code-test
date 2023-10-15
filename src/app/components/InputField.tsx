@@ -11,12 +11,12 @@ interface InputFieldProps {
 }
 
 const InputField: React.FC<InputFieldProps> = ({
-  key,
-  name,
-  placeholder,
-  type,
+  key = '',
+  name = '',
+  placeholder = '',
+  type = '',
   defaultValue = '',
-  errorMessage,
+  errorMessage = '',
   handleChange = () => null,
 }) => {
   const [inputValue, setInputValue] = useState<string>(defaultValue);

@@ -12,9 +12,8 @@ const BackgroundImageLoader = ({ alt = '', src = '' }) => {
       src={src}
       fill
       loading="lazy"
-      objectFit="cover"
-      objectPosition="center"
-      className={`duration-400 ease-in-out
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      className={`duration-400 object-cover object-center ease-in-out
           ${
             isLoading
               ? 'scale-110 blur-2xl grayscale'
