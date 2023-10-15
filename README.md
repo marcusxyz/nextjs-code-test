@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<img width="1183" alt="Screenshot 2023-10-15 at 14 49 42" src="https://github.com/marcusxyz/nextjs-code-test/assets/46654887/a66e72df-4ff8-4286-b806-e78e4b114424">
 
-## Getting Started
+## nextjs-code-test
+A Next.js code test for a job interview. 
 
-First, run the development server:
+## Installation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repo
+2. Run `npm install` and `npm run dev`
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## The assignment
 
-To learn more about Next.js, take a look at the following resources:
+- Create two components based on design
+  - Category component (No functionality)
+  - Newsletter component (With functionality, see details below)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Functionality for Newsletter component
+  - Validate the fields client side with error states
+    - Firstname: Required
+    - Lastname: Required
+    - Email: Required | ValidEmail
+   - Post the form fields to a Next.js API route when the form is submitted
+     - Validate the fields again server side with the same requirements
+       - If all fields is valid: Send back HTTP status `200` with success message
+       - If some fields is invalid: Send back HTTP status `403` with info about the fields that is invalid
+       - Handle the different status codes and field errors client side in the form
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Demo
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Here is a live demo of the project: [nextjs-code-test.vercel.app](nextjs-code-test.vercel.app)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Built with
+
+- [Next.js](https://nextjs.org/) - A front-end framework that makes it easy to build fast websites with React.
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom user interfaces.
+- [Typescript](https://www.typescriptlang.org/) - An open-source language which builds on JavaScript by adding static type definitions.
