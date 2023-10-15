@@ -1,5 +1,9 @@
 import { useState } from 'react';
-import { isValidEmail, isValidName } from '../utils/form-validators';
+import {
+  isValidEmail,
+  isValidName,
+  validateCheckbox,
+} from '../utils/form-validators';
 import { ErrorMessageProps } from '../types/newsletter';
 import { inputFieldsMockData } from '../mockData/inputFieldsMockData';
 
@@ -7,14 +11,12 @@ const initialFormData = {
   firstName: '',
   lastName: '',
   email: '',
-  acceptTerms: '',
 };
 
 const errorMessage: ErrorMessageProps = {
   firstName: '',
   lastName: '',
   email: '',
-  acceptTerms: '',
 };
 
 const NewsletterForm = () => {
@@ -22,12 +24,11 @@ const NewsletterForm = () => {
   const [errorMessages, setErrorMessages] = useState(errorMessage);
   const [message, setMessage] = useState('');
 
-  const validate = (formValues: Record<string, string>) => {
+  const validate = (formValues: Record<string, any>) => {
     let error: ErrorMessageProps = {
       firstName: '',
       lastName: '',
       email: '',
-      acceptTerms: '',
     };
 
     // If user has entered first name, check if it's valid
@@ -45,10 +46,6 @@ const NewsletterForm = () => {
       error.email = 'Please enter a valid email';
     }
 
-    // checkbox is not checked send error message
-    if (!formValues.acceptTerms) {
-      error.acceptTerms = 'Please check the box';
-    }
     return error;
   };
 
@@ -59,15 +56,17 @@ const NewsletterForm = () => {
     });
   };
 
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    if (e.currentTarget.value.length > 0) {
-      setErrorMessages(validate(formData));
-    }
-  };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrorMessages(validate(formData));
+
+    // Use the validateCheckbox function to check if the checkbox is checked
+    const isCheckboxChecked = validateCheckbox();
+
+    // validateCheckbox returns true set isTermsChecked to true
+    if (!isCheckboxChecked) {
+      return;
+    }
 
     try {
       const response = await fetch('/api/newsletter', {
@@ -107,7 +106,6 @@ const NewsletterForm = () => {
               placeholder={placeholder}
               type={type}
               onChange={handleChange}
-              onBlur={handleBlur}
             />
             <span className='block mt-2 text-red-600'>
               {errorMessages[name as keyof ErrorMessageProps]}

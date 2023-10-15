@@ -1,8 +1,8 @@
 'use client';
 import NewsletterForm from './NewsletterForm';
 import LandscapeImage from './LandscapeImage';
-import Checkbox from './Checkbox';
 import { NewsletterProps } from '../types/newsletter';
+import Checkbox from './Checkbox';
 
 const Newsletter = ({ content }: NewsletterProps) => {
   const { title = '', description = '', imageUrl = '' } = content;
@@ -20,7 +20,15 @@ const Newsletter = ({ content }: NewsletterProps) => {
         </div>
       </div>
       <div className='py-8 flex flex-col-reverse gap-8 lg:flex-row justify-between'>
-        <Checkbox />
+        <div className='flex items-center gap-4'>
+          <Checkbox
+            id='acceptTerms'
+            name='isTermsChecked'
+            errorMessageId='newsletterCheckboxError'
+            form='newsletter'
+            label='Jag accepterar hantering av personuppgifter'
+          />
+        </div>
         <button
           type='submit'
           form='newsletter'

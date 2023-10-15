@@ -21,8 +21,6 @@ export const handler = (
   if (req.method === 'POST') {
     const { email, firstName, lastName } = req.body;
 
-    // console.log('req.body', req.body);
-
     if (!isValidEmail(email)) {
       return res.status(403).json({ error: 'Invalid email address' });
     }

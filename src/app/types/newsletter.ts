@@ -12,7 +12,6 @@ export interface ErrorMessageProps {
   firstName: string;
   lastName: string;
   email: string;
-  acceptTerms: string;
 }
 
 export interface inputFieldsDataProps {

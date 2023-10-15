@@ -14,3 +14,24 @@ export const isValidEmail = (email: string) => {
   );
   return emailRegex.test(email);
 };
+
+export const validateCheckbox = (): boolean => {
+  // Get the id of the checkbox and the related error message
+  const checkbox = document.getElementById('acceptTerms') as HTMLInputElement;
+  const checkboxError = document.getElementById('newsletterCheckboxError');
+
+  // If the checkbox is not checked, set an error message
+  if (!checkbox?.checked && checkboxError) {
+    checkboxError.innerHTML = 'Please check the box to accept the terms.';
+    console.log('is not checked');
+
+    return false;
+  }
+
+  // Remove the error message if the checkbox is checked
+  if (checkbox?.checked && checkboxError) {
+    checkboxError.innerHTML = '';
+  }
+
+  return true;
+};

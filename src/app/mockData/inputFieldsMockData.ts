@@ -2,7 +2,7 @@ import { inputFieldsDataProps } from '../types/newsletter';
 
 export const inputFieldsMockData: inputFieldsDataProps[] = [
   {
-    id: 'firstName',
+    id: 'firstName',          
     name: 'firstName',
     placeholder: 'Förnamn',
     type: 'text',
