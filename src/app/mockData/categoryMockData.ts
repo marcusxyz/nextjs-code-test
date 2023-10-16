@@ -1,6 +1,6 @@
 import { CategoryMockdataProps } from '../types/category';
 
-export const categoryMockdata: CategoryMockdataProps[] = [
+export const categoryMockData: CategoryMockdataProps[] = [
   {
     id: 1,
     categoryTitle: 'Man',

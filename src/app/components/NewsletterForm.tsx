@@ -51,10 +51,10 @@ const NewsletterForm = () => {
     return error;
   };
 
-  const handleChange = (e: Record<string, any>): void => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setFormData({
       ...formData,
-      [e.currentTarget.name]: e.currentTarget.value,
+      [e.currentTarget.name]: e.currentTarget.value.trim(),
     });
 
     // Remove error message when user starts typing
@@ -96,11 +96,20 @@ const NewsletterForm = () => {
         // Display success message to user
         setApiResponseMessage(message);
       }
+
+      if (response.status === 403) {
+        setApiResponseMessage('Please correct the errors above.');
+      }
     } catch (error) {
+      console.error(error);
       setApiResponseMessage('Something went wrong. Please try again later.');
-      return error;
     }
   };
+
+  // Early return if inputFieldsMockData is empty
+  if (!inputFieldsMockData?.length) {
+    return null;
+  }
 
   return (
     <form onSubmit={handleSubmit} id="newsletter">
@@ -112,6 +121,7 @@ const NewsletterForm = () => {
               id={id}
               name={name}
               placeholder={placeholder}
+              required
               type={type}
               onChange={handleChange}
             />

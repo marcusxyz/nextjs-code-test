@@ -8,7 +8,7 @@ type ResponseData = {
 
 export const handler = (
   req: NextApiRequest,
-  res: NextApiResponse<ResponseData>
+  res: NextApiResponse<ResponseData>,
 ) => {
   // Check if api is setup correctly
   if (req.method === 'GET') {
@@ -26,19 +26,18 @@ export const handler = (
     }
 
     if (!isValidName(firstName)) {
-      return res.status(403).json({ error: 'Invalid name first name' });
+      return res.status(403).json({ error: 'Invalid first name' });
     }
 
     if (!isValidName(lastName)) {
-      return res.status(403).json({ error: 'Invalid name last name' });
+      return res.status(403).json({ error: 'Invalid last name' });
     }
 
     return res
       .status(200)
       .json({ message: `Thanks for signing up! We'll keep you posted.` });
   }
-
-  return res.status(404).end();
+  return res.status(405).json({ error: 'Method not allowed' });
 };
 
 export default handler;

@@ -1,15 +1,15 @@
 import CategoryList from './components/CategoryList';
 import Newsletter from './components/Newsletter';
-import { categoryMockdata } from './mockData/categoryMockData';
-import { newsletterMockdata } from './mockData/newsletterMockData';
+import { categoryMockData } from './mockData/categoryMockData';
+import { newsletterMockData } from './mockData/newsletterMockData';
 
 const Home = () => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-4 lg:bg-[var(--background-desktop)] lg:p-12">
-      {!!categoryMockdata.length && (
-        <CategoryList categoryData={categoryMockdata} />
+      {!!categoryMockData?.length && (
+        <CategoryList categoryData={categoryMockData} />
       )}
-      {!!newsletterMockdata && <Newsletter content={newsletterMockdata} />}
+      {!!newsletterMockData && <Newsletter content={newsletterMockData} />}
     </main>
   );
 };
