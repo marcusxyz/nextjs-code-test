@@ -1,10 +1,10 @@
-// Use client on this component
 'use client';
 import Image from 'next/image';
 import { useState } from 'react';
+import { ImageProps } from '../types/general';
 
-const BackgroundImageLoader = ({ alt = '', src = '' }) => {
-  const [isLoading, setLoading] = useState(true);
+const BackgroundImageLoader = ({ alt = '', src = '' }: ImageProps) => {
+  const [isLoading, setLoading] = useState<boolean>(true);
 
   return (
     <Image

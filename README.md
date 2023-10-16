@@ -1,4 +1,4 @@
-<img width="1183" alt="Screenshot 2023-10-15 at 14 49 42" src="https://github.com/marcusxyz/nextjs-code-test/assets/46654887/a66e72df-4ff8-4286-b806-e78e4b114424">
+<img width="1183" alt="Screenshot 2023-10-15 at 14 49 42" src="https://github.com/marcusxyz/nextjs-code-test/assets/46654887/d98267bb-7c6d-4630-a89c-5d9043fe7407">
 
 ## nextjs-code-test
 A Next.js code test for a job interview. 

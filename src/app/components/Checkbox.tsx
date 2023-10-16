@@ -1,10 +1,4 @@
-interface CheckboxProps {
-  id: string;
-  name: string;
-  errorMessageId: string;
-  form?: string;
-  label: string;
-}
+import { CheckboxProps } from '../types/general';
 
 const Checkbox = ({
   id = '',
@@ -16,7 +10,7 @@ const Checkbox = ({
   return (
     <div className="flex items-center gap-4">
       <input
-        className="form-checkbox p-3 checked:bg-orange-600"
+        className="form-checkbox:checked form-checkbox border-2 border-black p-3"
         type="checkbox"
         form={form}
         name={name}

@@ -4,28 +4,30 @@ import {
   isValidName,
   validateCheckbox,
 } from '../utils/form-validators';
-import { ErrorMessageProps } from '../types/newsletter';
+import { NewsletterInputProps } from '../types/newsletter';
 import { inputFieldsMockData } from '../mockData/inputFieldsMockData';
 
-const initialFormData = {
+const initialFormData: NewsletterInputProps = {
   firstName: '',
   lastName: '',
   email: '',
 };
 
-const errorMessage: ErrorMessageProps = {
+const errorMessage: NewsletterInputProps = {
   firstName: '',
   lastName: '',
   email: '',
 };
 
 const NewsletterForm = () => {
-  const [formData, setFormData] = useState(initialFormData);
-  const [errorMessages, setErrorMessages] = useState(errorMessage);
-  const [apiResponseMessage, setApiResponseMessage] = useState('');
+  const [formData, setFormData] =
+    useState<NewsletterInputProps>(initialFormData);
+  const [errorMessages, setErrorMessages] =
+    useState<NewsletterInputProps>(errorMessage);
+  const [apiResponseMessage, setApiResponseMessage] = useState<string>('');
 
   const validate = (formValues: Record<string, any>) => {
-    let error: ErrorMessageProps = {
+    let error: NewsletterInputProps = {
       firstName: '',
       lastName: '',
       email: '',
@@ -54,6 +56,12 @@ const NewsletterForm = () => {
       ...formData,
       [e.currentTarget.name]: e.currentTarget.value,
     });
+
+    // Remove error message when user starts typing
+    setErrorMessages({
+      ...errorMessages,
+      [e.currentTarget.name]: '',
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -63,7 +71,7 @@ const NewsletterForm = () => {
     // Use the validateCheckbox function to check if the checkbox is checked
     const isCheckboxChecked = validateCheckbox();
 
-    // validateCheckbox returns true set isTermsChecked to true
+    // Prevent form submission if checkbox is not checked
     if (!isCheckboxChecked) {
       return;
     }
@@ -82,9 +90,6 @@ const NewsletterForm = () => {
       });
 
       if (response.ok) {
-        // Reset form fields
-        setFormData(initialFormData);
-
         const data = await response.json();
         const { message } = data;
 
@@ -111,7 +116,7 @@ const NewsletterForm = () => {
               onChange={handleChange}
             />
             <span className="mt-2 block text-red-600">
-              {errorMessages[name as keyof ErrorMessageProps]}
+              {errorMessages[name as keyof NewsletterInputProps]}
             </span>
           </div>
         ))}

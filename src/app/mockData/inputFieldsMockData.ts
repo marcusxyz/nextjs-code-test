@@ -1,8 +1,8 @@
-import { inputFieldsDataProps } from '../types/newsletter';
+import { InputFieldsDataProps } from '../types/newsletter';
 
-export const inputFieldsMockData: inputFieldsDataProps[] = [
+export const inputFieldsMockData: InputFieldsDataProps[] = [
   {
-    id: 'firstName',          
+    id: 'firstName',
     name: 'firstName',
     placeholder: 'Förnamn',
     type: 'text',

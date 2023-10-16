@@ -8,13 +8,13 @@ export interface NewsletterProps {
   content: NewsletterMockdataProps;
 }
 
-export interface ErrorMessageProps {
+export interface NewsletterInputProps {
   firstName: string;
   lastName: string;
   email: string;
 }
 
-export interface inputFieldsDataProps {
+export interface InputFieldsDataProps {
   id: string;
   name: string;
   placeholder: string;
